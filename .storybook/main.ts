@@ -1,6 +1,8 @@
-import * as path from 'path';
-import { Configuration } from 'webpack';
+// main.ts
+import * as path from "path";
+import { Configuration } from "webpack";
 
+// Customization of Storybook's Webpack configuration
 const config = {
   webpackFinal: async (config: Configuration) => {
     return {
@@ -9,40 +11,40 @@ const config = {
         ...config.resolve,
         alias: {
           ...config.resolve?.alias,
-          '@': path.resolve(__dirname, '../src'),
+          "@": path.resolve(__dirname, "../src"),
         },
       },
     };
   },
-
-  stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
-
+  // Specifies where Storybook should look for stories within the project, targeting MDX files and story
+  stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
+  // Includes a list of Storybook addons to enhance its functionality
   addons: [
-    '@storybook/addon-links',
-    '@storybook/addon-essentials',
-    '@storybook/addon-interactions',
-    '@storybook/addon-themes',
-    '@chromatic-com/storybook'
+    "@storybook/addon-links",
+    "@storybook/addon-essentials",
+    "@storybook/addon-interactions",
+    "@storybook/addon-themes",
+    "@chromatic-com/storybook",
   ],
-
+  // Specifies that the project uses the Next.js framework with Storybook.
   framework: {
-    name: '@storybook/nextjs',
+    name: "@storybook/nextjs",
     options: {},
   },
-
+  // Disables the emotionAlias feature, which affects how Emotion
   features: {
     emotionAlias: false,
   },
-
+  // Configures how TypeScript types are generated and handled
   typescript: {
     check: false,
     checkOptions: {},
-    reactDocgen: 'react-docgen-typescript',
+    reactDocgen: "react-docgen-typescript",
     reactDocgenTypescriptOptions: {
       allowSyntheticDefaultImports: false,
       esModuleInterop: false,
-      shouldExtractLiteralValuesFromEnum: true, 
-      shouldRemoveUndefinedFromOptional: true, 
+      shouldExtractLiteralValuesFromEnum: true,
+      shouldRemoveUndefinedFromOptional: true,
       propFilter: (prop) =>
         prop.parent
           ? !/node_modules\/(?!@mui)/.test(prop.parent.fileName)

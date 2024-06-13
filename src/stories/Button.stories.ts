@@ -2,13 +2,18 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";
 import { MuiButton } from "@/components/Button";
 
+// The meta object configures the Storybook metadata for the MuiButton stories
 const meta = {
+  // The title under which the stories will be grouped.
   title: "Atomic/Button",
+  // The component itself, which is MuiButton.
   component: MuiButton,
+  // Storybook parameters and tags for additional settings and documentation.
   parameters: {
     layout: "centered",
   },
   tags: ["autodocs"],
+  // argTypes to define the controls for Storybook's UI, allowing you to dynamically change the props of the component.
   argTypes: {
     variant: {
       control: {
@@ -19,7 +24,7 @@ const meta = {
     color: {
       control: {
         type: "select",
-        options: ["primary", "success", "warning", "danger"],
+        options: ["primary", "secondary", "success", "warning", "danger"],
       },
     },
     size: {
@@ -30,6 +35,7 @@ const meta = {
     },
     onClick: { action: "clicked" },
   },
+  // The args within meta provide default values for the props of the MuiButton component
   args: {
     color: "primary",
     variant: "contained",
@@ -37,6 +43,7 @@ const meta = {
     label: "Button",
     onClick: fn(),
   },
+  // The satisfies Meta ensures that the meta object conforms to the expected structure for a component of type MuiButton
 } satisfies Meta<typeof MuiButton>;
 
 export default meta;
