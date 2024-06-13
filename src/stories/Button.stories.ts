@@ -18,29 +18,19 @@ const meta = {
     variant: {
       control: {
         type: "select",
-        options: ["contained", "outlined", "text"],
       },
     },
     color: {
       control: {
         type: "select",
-        options: ["primary", "secondary", "success", "warning", "danger"],
-      },
-    },
-    size: {
-      control: {
-        type: "radio",
-        options: ["small", "medium", "large"],
       },
     },
     onClick: { action: "clicked" },
   },
   // The args within meta provide default values for the props of the MuiButton component
   args: {
-    color: "primary",
-    variant: "contained",
     size: "medium",
-    label: "Button",
+    variant: "contained",
     onClick: fn(),
   },
   // The satisfies Meta ensures that the meta object conforms to the expected structure for a component of type MuiButton
@@ -49,17 +39,17 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Success: Story = {
-  args: {
-    color: "success",
-    label: "Success Button",
-  },
-};
-
 export const Primary: Story = {
   args: {
     color: "primary",
     label: "Primary Button",
+  },
+};
+
+export const Success: Story = {
+  args: {
+    color: "success",
+    label: "Success Button",
   },
 };
 
