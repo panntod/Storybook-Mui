@@ -1,9 +1,10 @@
 // main.ts
 import * as path from "path";
 import { Configuration } from "webpack";
+import type { StorybookConfig } from "@storybook/nextjs";
 
 // Customization of Storybook's Webpack configuration
-const config = {
+const config: StorybookConfig = {
   webpackFinal: async (config: Configuration) => {
     return {
       ...config,
@@ -31,18 +32,12 @@ const config = {
     name: "@storybook/nextjs",
     options: {},
   },
-  // Disables the emotionAlias feature, which affects how Emotion
-  features: {
-    emotionAlias: false,
-  },
   // Configures how TypeScript types are generated and handled
   typescript: {
     check: false,
     checkOptions: {},
     reactDocgen: "react-docgen-typescript",
     reactDocgenTypescriptOptions: {
-      allowSyntheticDefaultImports: false,
-      esModuleInterop: false,
       shouldExtractLiteralValuesFromEnum: true,
       shouldRemoveUndefinedFromOptional: true,
       propFilter: (prop) =>
