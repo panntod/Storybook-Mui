@@ -5,7 +5,7 @@ import { Box } from "@mui/material";
 import { MuiButton } from "@/components/Button";
 
 const meta = {
-    title: "Atomic/Card",
+    title: "Molecule/Card",
     component: MuiCard,
     parameters: {
         layout: "centered",
