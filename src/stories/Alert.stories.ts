@@ -10,13 +10,19 @@ const meta = {
   tags: ["autodocs"],
   argTypes: {
     variant: {
-      table: { type: { summary: '"filled" | "outlined"' } },
+      table: {
+        type: { summary: '"filled" | "outlined"' },
+        defaultValue: { summary: '"filled"' },
+      },
       options: ["filled", "outlined"],
       control: { type: "radio" },
     },
     severity: {
-      description: "The variant to use.",
-      table: { type: { summary: '"success" | "warning" | "error" | "info"' } },
+      description: "The severity to use.",
+      table: {
+        type: { summary: '"success" | "warning" | "error" | "info"' },
+        defaultValue: { summary: '"success"' },
+      },
       options: ["success", "warning", "error", "info"],
       control: { type: "select" },
     },
