@@ -1,8 +1,9 @@
 import React from "react";
+import { type AlertColor, AlertProps as MuiAlertProps } from "@mui/material";
 
-export interface AlertProps {
+export interface AlertProps extends Omit<MuiAlertProps, "variant"> {
   children?: React.ReactNode;
-  severity: "success" | "warning" | "error" | "info";
+  severity: AlertColor;
   variant: "filled" | "outlined";
   title: string;
   message: string;

@@ -10,16 +10,15 @@ const meta = {
   tags: ["autodocs"],
   argTypes: {
     variant: {
-      control: {
-        type: "select",
-        options: ["filled", "outlined"],
-      },
+      table: { type: { summary: '"filled" | "outlined"' } },
+      options: ["filled", "outlined"],
+      control: { type: "radio" },
     },
     severity: {
-      control: {
-        type: "select",
-        options: ["success", "warning", "error", "info"],
-      },
+      description: "The variant to use.",
+      table: { type: { summary: '"success" | "warning" | "error" | "info"' } },
+      options: ["success", "warning", "error", "info"],
+      control: { type: "select" },
     },
   },
   args: {
